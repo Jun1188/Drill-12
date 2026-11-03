@@ -69,9 +69,10 @@ class Boy:
             self.face_dir = direction
             if self.state in ('IDLE', 'SLEEP'):
                 self.start_run()
-        elif self.state == 'RUN':
-            self.dir = 0
-            self.stop_run()
+       # elif self.state == 'RUN':
+        #    self.dir = 0
+
+         #   self.stop_run()
 
     def update(self):
         if self.state == 'IDLE':
@@ -83,6 +84,10 @@ class Boy:
             self.frame = (self.frame + 1) % 8
             self.x += self.dir * 5
             self.x = max(25, min(get_canvas_width() - 25, self.x))
+            #if self.x >= 1100:
+            #    self.dir = -1
+            #elif self.x < 10:
+            #    self.dir = 1
 
     def draw(self):
         if self.state == 'SLEEP':
