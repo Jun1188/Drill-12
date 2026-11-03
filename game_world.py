@@ -3,12 +3,14 @@ from pico2d import *
 from boy import Boy
 from grass import Grass
 
-world = [[], []] # layers for game objects, 이중 리스트 [깊이], [객체]
+world = [[], [], []] # layers for game objects, 이중 리스트 [깊이], [객체]
 
-def add_object(o, depth=0): #0이면 배경, 1이면 캐릭터
+def add_object(o, depth=1): 
+    if depth == 2:
+        o.y += 10
     world[depth].append(o)
 
-def add_objects(ol, depth=0):
+def add_objects(ol, depth=1):
     
     world[depth] += ol
 
